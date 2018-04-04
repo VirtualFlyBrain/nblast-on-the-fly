@@ -1,6 +1,6 @@
 FROM rocker/shiny
 
-RUN apt-get -y update && apt-get -y install git r-base libssl-dev libssh2-1-dev mesa-common-dev cmtk xvfb
+RUN apt-get -y update && apt-get -y install git r-base libssl-dev libssh2-1-dev mesa-common-dev cmtk xvfb libcurl4-openssl-dev 
 
 RUN rm -rf /srv/shiny-server 
 
