@@ -10,5 +10,5 @@ RUN chmod -R 777 /srv/
 
 COPY bootScript.R /bootScript.R
 
-RUN Rscript /buildScript.R 
+RUN Rscript /bootScript.R 
 
