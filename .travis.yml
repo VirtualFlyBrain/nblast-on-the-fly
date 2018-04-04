@@ -26,7 +26,9 @@ script:
     done
   - echo -e "travis_fold:end:NBLAST-boot"
   - travis_wait 60 curl -sSf http://localhost:3838/
+  - echo -e "travis_fold:start:docker-log"
   - docker logs --since 2m test 
+  - echo -e "travis_fold:end:docker-log"
   
 after_success:
   - cd $TRAVIS_BUILD_DIR
