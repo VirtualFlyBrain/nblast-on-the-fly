@@ -25,6 +25,7 @@ script:
   - travis_wait 190 docker build -t $REPO:$COMMIT .
   - echo -e "travis_fold:end:docker-build"
   - echo -e "travis_fold:start:NBLAST-boot"
+  - sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" Dockerfile
   - travis_wait 190 docker run -d --name test -p 3838:3838 -v $HOME/.cache/data:/data $REPO:$COMMIT
   - |
     while [ $(docker logs test | grep 'INFO' | grep 'shiny-server' | wc -l) -lt 1 ]; do 
