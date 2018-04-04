@@ -14,7 +14,10 @@ cache:
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
-  
+
+before_cache:
+  - mkdir -p $HOME/.cache/data
+
 script:
   - echo -e "travis_fold:start:docker-build"
   - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
