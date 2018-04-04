@@ -22,7 +22,7 @@ script:
   - echo -e "travis_fold:start:docker-build"
   - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - travis_wait 190 docker build -t $REPO:$COMMIT .
+  - travis_wait 190 docker build -q -t $REPO:$COMMIT .
   - echo -e "travis_fold:end:docker-build"
   - echo -e "travis_fold:start:NBLAST-boot"
   - sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" Dockerfile
