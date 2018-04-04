@@ -8,7 +8,7 @@ RUN git clone https://github.com/jefferislab/NBLAST_on-the-fly.git /srv/shiny-se
 
 RUN chmod -R 777 /srv/
 
-COPY bootScript.R /bootScript.R || :
+COPY bootScript.R /bootScript.R 
 
-RUN Rscript /bootScript.R 
+RUN Rscript /bootScript.R || :
 
