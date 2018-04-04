@@ -1,0 +1,35 @@
+language: node_js
+os: linux
+dist: trusty
+node_js:
+  - "7"
+
+services:
+  - docker
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+  
+script:
+  - echo -e "travis_fold:start:docker-build"
+  - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - travis_wait 190 docker build -t $REPO:$COMMIT .
+  - echo -e "travis_fold:end:docker-build"
+  - echo -e "travis_fold:start:NBLAST-boot"
+  - travis_wait 190 docker run -d -ti --name test -p 3838:3838 $REPO:$COMMIT
+  - |
+    while [ $(docker logs test | grep 'INFO' | grep 'shiny-server' | wc -l) -lt 1 ]; do 
+      sleep 30s
+      docker logs --tail 1 test 
+    done
+  - echo -e "travis_fold:end:NBLAST-boot"
+  - travis_wait 60 curl -sSf http://localhost:3838/
+  - docker logs --since 2m test 
+  
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker push $REPO:$TAG
