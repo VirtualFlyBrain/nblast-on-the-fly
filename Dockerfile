@@ -1,5 +1,7 @@
 FROM rocker/shiny
 
+VOLUME /data
+
 RUN apt-get -y update && apt-get -y install git r-base libssl-dev libssh2-1-dev cmtk xvfb \
 libcurl4-openssl-dev libx11-dev mesa-common-dev libglu1-mesa-dev libxml2-dev
 
