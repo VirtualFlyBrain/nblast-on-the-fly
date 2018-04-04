@@ -19,4 +19,4 @@ RUN chmod +x /startServer.sh
 
 RUN Rscript /bootScript.R || :
 
-CMD["/startServer.sh"]
+CMD ["/startServer.sh"]
