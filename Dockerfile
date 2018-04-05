@@ -23,6 +23,6 @@ RUN sed -i "s/server {/preserve_logs true;/nserver {/" /etc/shiny-server/shiny-s
 && cat /etc/shiny-server/shiny-server.conf
 
 
-RUN Rscript /bootScript.R
+RUN Rscript /bootScript.R || :
 
 CMD ["/startServer.sh"]
