@@ -19,9 +19,6 @@ COPY startServer.sh /startServer.sh
 
 RUN chmod +x /startServer.sh
 
-RUN sed -i "s/server {/server {\ndisable_websockets on;/" /etc/shiny-server/shiny-server.conf \
-&& cat /etc/shiny-server/shiny-server.conf
-
 RUN Rscript /bootScript.R
 
 CMD ["/startServer.sh"]
