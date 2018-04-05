@@ -2,6 +2,10 @@
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
+if [ "$FASTBOOT" != "false" ]; then
+  sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" /loadScript.R
+fi
+
 Rscript /loadScript.R
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
