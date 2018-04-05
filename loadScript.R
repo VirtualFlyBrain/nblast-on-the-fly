@@ -2,6 +2,8 @@
 
 options(flycircuit.datadir="/data")
 options(rgl.useNULL=TRUE)
+options(shiny.port=3838)
+options(shiny.host="0.0.0.0")
 if(!require("devtools")) install.packages("devtools")
 devtools::source_gist("fdd1e5b6e009ff49e66be466a104fd92", filename = "install_flyconnectome_all.R")
 install_github("jefferis/flycircuit", dependencies=TRUE)
