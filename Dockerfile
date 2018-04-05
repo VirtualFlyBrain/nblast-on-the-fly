@@ -19,7 +19,7 @@ COPY startServer.sh /startServer.sh
 
 RUN chmod +x /startServer.sh
 
-RUN sed -i "s/server {/server {\npreserve_logs true;/" /etc/shiny-server/shiny-server.conf \
+RUN sed -i "s/server {/preserve_logs true;/nserver {/" /etc/shiny-server/shiny-server.conf \
 && cat /etc/shiny-server/shiny-server.conf
 
 
