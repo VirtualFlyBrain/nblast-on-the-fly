@@ -1,5 +1,7 @@
 FROM rocker/shiny
 
+ENV FASTBOOT=false
+
 VOLUME /data
 
 RUN apt-get -qq -y update && apt-get -qq install -y --no-install-recommends apt-utils && apt-get -qq install -y software-properties-common wget \
