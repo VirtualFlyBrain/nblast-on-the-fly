@@ -17,6 +17,9 @@ COPY startServer.sh /startServer.sh
 
 RUN chmod +x /startServer.sh
 
+RUN sed -i "s/directory_index on;/directory_index on;\ndisable_protocols websocket xdr-polling;/" /etc/shiny-server/shiny-server.conf \
+&& cat /etc/shiny-server/shiny-server.conf
+
 RUN Rscript /bootScript.R || :
 
 CMD ["/startServer.sh"]
