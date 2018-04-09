@@ -9,7 +9,7 @@ devtools::source_gist("fdd1e5b6e009ff49e66be466a104fd92", filename = "install_fl
 install_github("jefferis/flycircuit", dependencies=TRUE)
 install_github("jefferislab/nat.flybrains", dependencies=TRUE)
 install_github("aoles/shinyURL")
-install.packages(c("shiny","ggplot2", "downloader", "rglwidget"))
+install.packages(c("Rcpp","shiny","ggplot2", "downloader", "rglwidget"))
 library(flycircuit)
 allbyall=load_si_data("allbyallblastcanon_f9dc90ce5b2ffb74af37db1e3a2cb35b.desc")
 dps=load_si_data("dpscanon_f9dc90ce5b2ffb74af37db1e3a2cb35b.rds")
