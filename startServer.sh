@@ -6,7 +6,7 @@ if [ "$FASTBOOT" != "false" ]; then
   sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" /loadScript.R
 fi
 
-Rscript --default-packages=methods,utils /loadScript.R
+Rscript /loadScript.R
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
