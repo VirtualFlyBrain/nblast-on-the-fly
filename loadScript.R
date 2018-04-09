@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-.libPaths( c("/srv/shiny-server/NBLAST_on-the-fly/packrat/lib/x86_64-pcc-linux-gnu/3.4.4/", .libPaths()) )
+.libPaths( c("/srv/shiny-server/NBLAST_on-the-fly/packrat/lib/x86_64-pc-linux-gnu/3.4.4/", .libPaths()) )
 options(flycircuit.datadir="/data")
 options(rgl.useNULL=TRUE)
 options(shiny.port=3838)
