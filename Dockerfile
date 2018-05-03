@@ -1,6 +1,5 @@
-FROM rocker/rstudio:3.4.2
+FROM rocker/shiny
 
-ENV ADD=shiny
 ENV FASTBOOT=false
 ENV DEBIAN_FRONTEND=noninteractive 
 
