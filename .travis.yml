@@ -25,14 +25,14 @@ script:
   - travis_wait 250 docker build -q -t $REPO:$COMMIT .
   - echo -e "travis_fold:end:docker-build"
   - echo -e "travis_fold:start:NBLAST-boot"
-  - travis_wait 190 docker run -d --name test -p 3838:3838 -v $HOME/.cache/data:/data -v $HOME/.cache/site-library:/usr/local/lib/R/site-library --env=FASTBOOT=true $REPO:$COMMIT
+  - travis_wait 190 docker run -d --name test -p 3838:3838 -v $HOME/.cache/data:/data -v $HOME/.cache/site-library:/usr/local/lib/R/site-library --env=FASTBOOT=true $REPO:$COMMIT Rscript /bootScript.R
   - |
     while [ $(docker logs test | grep 'INFO' | grep 'shiny-server' | wc -l) -lt 1 ]; do 
       sleep 5m
       docker logs --tail 1 test 
     done
   - echo -e "travis_fold:end:NBLAST-boot"
-  - travis_wait 60 curl -sSf http://localhost:3838/NBLAST_on-the-fly/
+  - travis_wait 60 curl -sSf http://localhost:3838/NBLAST_on-the-fly/ || :
   - echo -e "travis_fold:start:docker-log"
   - docker logs --since 1m test 
   - echo -e "travis_fold:end:docker-log"
