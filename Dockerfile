@@ -14,7 +14,7 @@ RUN apt-get -qq install -f -y --no-install-recommends libmagick++-dev
 RUN apt-get -qq install -f -y --no-install-recommends libpoppler-cpp-dev libwebp-dev libssh2-1-dev
 RUN apt-get -qq install -f -y --no-install-recommends cmtk libblas-dev liblapack-dev tree grep libssl-dev
 
-RUN git clone https://github.com/jefferislab/NBLAST_on-the-fly.git /srv/shiny-server/NBLAST_on-the-fly
+RUN git clone https://github.com/jefferislab/NBLAST_on-the-fly.git -b nopackrat /srv/shiny-server/NBLAST_on-the-fly
 
 RUN chmod -R 777 /srv/
 
