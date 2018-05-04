@@ -27,6 +27,6 @@ RUN chmod +x /startServer.sh
 # && cat /etc/shiny-server/shiny-server.conf
 
 
-RUN Rscript /bootScript.R || :
+#RUN Rscript /bootScript.R || :
 
 CMD ["/startServer.sh"]
