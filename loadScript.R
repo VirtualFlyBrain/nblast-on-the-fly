@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 .libPaths( c("/srv/shiny-server/NBLAST_on-the-fly/packrat/lib/x86_64-pc-linux-gnu/3.4.4/", .libPaths()) )
-options(flycircuit.datadir="/data")
+options(flycircuit.datadir="/home/shiny/.local/share/rpkg-flycircuit/data/")
 options(rgl.useNULL=TRUE)
 options(shiny.port=3838)
 options(shiny.host="0.0.0.0")
