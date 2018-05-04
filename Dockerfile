@@ -29,6 +29,4 @@ RUN chmod +x /startServer.sh
 
 #RUN Rscript /bootScript.R || :
 
-USER shiny
-
 CMD ["/startServer.sh"]
