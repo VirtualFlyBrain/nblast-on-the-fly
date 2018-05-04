@@ -25,7 +25,7 @@ script:
   - travis_wait 250 docker build -q -t $REPO:$COMMIT .
   - echo -e "travis_fold:end:docker-build"
   - echo -e "travis_fold:start:NBLAST-boot"
-  - travis_wait 190 docker run --name test -p 3838:3838 -v $HOME/.cache/data:/data -v $HOME/.cache/site-library:/usr/local/lib/R/site-library --env=FASTBOOT=true $REPO:$COMMIT Rscript /loadScript.R
+  - travis_wait 190 docker run --name test -p 3838:3838 -v $HOME/.cache/data:/data -v $HOME/.cache/site-library:/usr/local/lib/R/site-library --env=FASTBOOT=true $REPO:$COMMIT Rscript /bootScript.R
   - echo -e "travis_fold:end:NBLAST-boot"
   
 after_success:
