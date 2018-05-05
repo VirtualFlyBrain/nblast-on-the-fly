@@ -8,6 +8,8 @@ fi
 
 Rscript /loadScript.R
 
+Rscript /loadScript.R
+
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
 chmod -R 777 /usr/local/lib/R/site-library
