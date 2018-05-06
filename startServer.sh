@@ -17,6 +17,6 @@ chmod -R 777 /usr/lib/R/site-library
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
-tail -f --retry /var/log/shiny-server/*.log &
+tail -F --retry /var/log/shiny-server/*.log &
 
 /usr/bin/shiny-server.sh 
