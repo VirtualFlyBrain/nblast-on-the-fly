@@ -17,6 +17,6 @@ rm -r /usr/local/lib/R/site-library/00LOCK-*
 
 while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then cat $file; fi; done; sleep 1m; done &
 
-Rscript /loadScript.R &
+Rscript /loadScript.R
 
 /usr/bin/shiny-server.sh 
