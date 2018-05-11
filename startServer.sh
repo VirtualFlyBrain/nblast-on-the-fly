@@ -19,4 +19,7 @@ while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then
 
 Rscript /loadScript.R
 
+cd /tmp/
+wget http://localhost:3838/NBLAST_on-the-fly/ &
+
 /usr/bin/shiny-server.sh 
