@@ -8,8 +8,6 @@ fi
 
 Rscript /loadScript.R
 
-Rscript /loadScript.R
-
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
 chmod -R 777 /usr/local/lib/R/site-library
@@ -17,6 +15,8 @@ chmod -R 777 /usr/lib/R/site-library
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
-tail -F --retry /var/log/shiny-server/*.log &
+while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then cat $file; fi; done; sleep 1m; done &
+
+Rscript /loadScript.R &
 
 /usr/bin/shiny-server.sh 
