@@ -6,7 +6,7 @@ if [ "$FASTBOOT" != "false" ]; then
   sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" /loadScript.R
 fi
 
-Rscript /loadScript.R
+xvfb-run Rscript /loadScript.R
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
@@ -22,4 +22,4 @@ Rscript /loadScript.R
 
 cd /tmp/ && sleep 1m && wget http://localhost:3838/NBLAST_on-the-fly/ &
 
-/usr/bin/shiny-server.sh 
+xvfb-run /usr/bin/shiny-server.sh 
