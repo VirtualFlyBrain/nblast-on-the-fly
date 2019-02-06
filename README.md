@@ -50,6 +50,11 @@ happens by setting:
 ENV RGL_USE_NULL=TRUE
 ```
 
+### xvfb
+
+xvfb can make a headless x session. It seems to have been installed by the Dockerfile
+since 7e3d67519dc0a66ec558530e0c85d69b5a12439a on 4 April 2018 but not actually used.
+
 from the begining. This should help.
 
 ### Multiple package versions
@@ -65,3 +70,4 @@ be preferred. This could also cause trouble.
 
 Finally it is worth noting that the rocker image seems to set MRAN as
 the default CRAN repository. This is a snapshotted version of CRAN.
+
