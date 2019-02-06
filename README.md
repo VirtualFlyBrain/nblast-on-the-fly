@@ -61,6 +61,11 @@ from the begining. This should help.
 This is anothe possible problem. There could be several places in 
 which packages are installed (e.g. by the original rocker image).
 
+Another pitfall here is the packrat snapshot system, which may result in the 
+installation of old versions of packages like rgl. In general all nat.* packages
+are kept up to date and functional at the bleeding edge, so it's normally
+easier to go with the latest versions of everything.
+
 ### CRAN vs GitHub
 
 Some packages are only on github because they cannot meet CRAN's requirements.
