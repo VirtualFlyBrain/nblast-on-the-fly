@@ -2,6 +2,7 @@ FROM rocker/shiny
 
 ENV FASTBOOT=false
 ENV DEBIAN_FRONTEND=noninteractive 
+ENV APPLICATION_LOGS_TO_STDOUT=true
 
 VOLUME /data
 
