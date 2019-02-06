@@ -1,5 +1,5 @@
 # nblast-on-the-fly
-Containerised NBLAST on-the-fly instance 
+Containerised NBLAST on-the-fly instance
 
 [Dockerfile](./Dockerfile) sets up the general environment based
 on the [rocker/shiny](https://hub.docker.com/r/rocker/shiny/) docker image.
@@ -55,9 +55,8 @@ ENV RGL_USE_NULL=TRUE
 xvfb can make a headless x session. It seems to have been installed by the Dockerfile
 since 7e3d67519dc0a66ec558530e0c85d69b5a12439a on 4 April 2018 but not actually used.
 
-from the begining. This should help.
-
 ### Multiple package versions
+
 This is anothe possible problem. There could be several places in 
 which packages are installed (e.g. by the original rocker image).
 
