@@ -13,6 +13,7 @@ RUN apt-get -qq install -f -y --no-install-recommends xvfb xauth libcairo2-dev
 RUN apt-get -qq install -f -y --no-install-recommends libmagick++-dev 
 RUN apt-get -qq install -f -y --no-install-recommends libpoppler-cpp-dev libwebp-dev libssh2-1-dev
 RUN apt-get -qq install -f -y --no-install-recommends cmtk libblas-dev liblapack-dev tree grep libssl-dev
+RUN apt-get -qq install -f -y --no-install-recommends xserver-xorg-video-dummy x11-apps
 
 RUN git clone https://github.com/jefferislab/NBLAST_on-the-fly.git /srv/shiny-server/NBLAST_on-the-fly
 
