@@ -1,4 +1,4 @@
-FROM rocker/shiny:3.6.3
+FROM rocker/shiny:3.5.3
 
 ENV FASTBOOT=false
 ENV DEBIAN_FRONTEND=noninteractive 
