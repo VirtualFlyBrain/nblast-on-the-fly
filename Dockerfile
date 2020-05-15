@@ -4,8 +4,6 @@ ENV FASTBOOT=false
 ENV DEBIAN_FRONTEND=noninteractive 
 ENV APPLICATION_LOGS_TO_STDOUT=true
 
-VOLUME /data
-
 RUN apt-get -qq -y update && apt-get -qq install -f -y --no-install-recommends apt-utils && apt-get -qq install -y software-properties-common wget
 RUN apt-get -qq install -f -y --no-install-recommends git gzip tar less curl libcurl4-gnutls-dev libxml2-dev libx11-dev freeglut3 freeglut3-dev libglu1-mesa-dev
 RUN apt-get -qq install -f -y --no-install-recommends libgl1-mesa-dev 
@@ -29,6 +27,7 @@ RUN chmod +x /startServer.sh
 # && cat /etc/shiny-server/shiny-server.conf
 
 
-#RUN Rscript /bootScript.R || :
+RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
+Rscript /buildScript.R || :
 
 CMD ["/startServer.sh"]
