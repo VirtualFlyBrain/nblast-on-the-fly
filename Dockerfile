@@ -30,4 +30,7 @@ RUN chmod +x /startServer.sh
 RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
 Rscript /buildScript.R || :
 
+RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
+Rscript /loadScript.R || :
+
 CMD ["/startServer.sh"]
