@@ -19,7 +19,7 @@ RUN git clone https://github.com/jefferislab/NBLAST_on-the-fly.git /srv/shiny-se
 
 RUN chmod -R 777 /srv/
 
-COPY bootScript.R /bootScript.R 
+COPY buildScript.R /buildScript.R 
 COPY loadScript.R /loadScript.R
 COPY startServer.sh /startServer.sh
 
