@@ -20,3 +20,60 @@ if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
 if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
 devtools::install_github("jefferis/nat", dependencies=TRUE)
 devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
+if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
+if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
+devtools::install_github("jefferis/nat", dependencies=TRUE)
+devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
+tryCatch(
+    expr = {
+        devtools::source_gist("fdd1e5b6e009ff49e66be466a104fd92", filename = "install_flyconnectome_packages.R")
+        message("Successfully executed the install_flyconnectome_all call.")
+    },
+    error = function(e){
+        message('Caught an error!')
+        print(e)
+    },
+    warning = function(w){
+        message('Caught an warning!')
+        print(w)
+    },
+    finally = {
+        message('All done, quitting.')
+    }
+) 
+tryCatch(
+    expr = {
+        devtools::install_github("jefferis/flycircuit", dependencies=TRUE)
+        message("Successfully executed the jefferis/flycircuit install.")
+    },
+    error = function(e){
+        message('Caught an error!')
+        print(e)
+    },
+    warning = function(w){
+        message('Caught an warning!')
+        print(w)
+    },
+    finally = {
+        message('All done, quitting.')
+    }
+) 
+tryCatch(
+    expr = {
+        devtools::install_github("jefferislab/nat.flybrains", dependencies=TRUE)
+        message("Successfully executed the jefferislab/nat.flybrains install.")
+    },
+    error = function(e){
+        message('Caught an error!')
+        print(e)
+    },
+    warning = function(w){
+        message('Caught an warning!')
+        print(w)
+    },
+    finally = {
+        message('All done, quitting.')
+    }
+) 
+library('methods')
+library(flycircuit)
