@@ -3,7 +3,8 @@ FROM rocker/shiny:3.6.3
 ENV FASTBOOT=false
 ENV DEBIAN_FRONTEND=noninteractive 
 ENV APPLICATION_LOGS_TO_STDOUT=true
-ENV GITHUB_PAT=e749672c76056d1d394ce70ebde4ad0ece63bad9
+ARG BUILD_KEY
+ENV GITHUB_PAT $BUILD_KEY
 
 RUN apt-get -qq -y update && apt-get -qq install -f -y --no-install-recommends apt-utils && apt-get -qq install -y software-properties-common wget
 RUN apt-get -qq install -f -y --no-install-recommends git gzip tar less curl libcurl4-gnutls-dev libxml2-dev libx11-dev freeglut3 freeglut3-dev libglu1-mesa-dev
