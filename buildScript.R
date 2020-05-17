@@ -31,10 +31,6 @@ tryCatch(
         message('Caught an error!')
         print(e)
     },
-    warning = function(w){
-        message('Caught an warning!')
-        print(w)
-    },
     finally = {
         message('All done, quitting.')
     }
@@ -48,10 +44,6 @@ tryCatch(
         message('Caught an error!')
         print(e)
     },
-    warning = function(w){
-        message('Caught an warning!')
-        print(w)
-    },
     finally = {
         message('All done, quitting.')
     }
@@ -64,10 +56,6 @@ tryCatch(
     error = function(e){
         message('Caught an error!')
         print(e)
-    },
-    warning = function(w){
-        message('Caught an warning!')
-        print(w)
     },
     finally = {
         message('All done, quitting.')
