@@ -18,6 +18,7 @@ library('rgl')
 rgl.useNULL()
 if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
 if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
+devtools::install_github("natverse/elmr", dependencies=TRUE)
 devtools::install_github("jefferis/nat", dependencies=TRUE)
 devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
 tryCatch(
