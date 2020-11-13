@@ -16,12 +16,10 @@ if(!require("rglwidget")) install.packages("rglwidget", dependencies=TRUE)
 if(!require("shinyRGL")) install.packages("shinyRGL", dependencies=TRUE)
 if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
 if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
+devtools::install_github("natverse/elmr", dependencies=TRUE)
 devtools::install_github("jefferis/nat", dependencies=TRUE)
 devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
-if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
-if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
-devtools::install_github("jefferis/nat", dependencies=TRUE)
-devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
+
 tryCatch(
     expr = {
         devtools::source_gist("fdd1e5b6e009ff49e66be466a104fd92", filename = "install_flyconnectome_packages.R")
