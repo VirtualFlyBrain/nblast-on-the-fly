@@ -24,7 +24,7 @@ devtools::install_github("jefferis/nat", dependencies=TRUE)
 devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
 tryCatch(
     expr = {
-        devtools::source_gist("fdd1e5b6e009ff49e66be466a104fd92", filename = "install_flyconnectome_packages.R")
+        devtools::source_gist("9f01cc7b96424e6486e3cd413bb33fcd", filename = "install_flyconnectome_packages.R")
         message("Successfully executed the install_flyconnectome_all call.")
     },
     error = function(e){
