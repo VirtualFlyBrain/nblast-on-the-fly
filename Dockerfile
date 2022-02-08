@@ -29,12 +29,18 @@ RUN chmod +x /startServer.sh
 # && cat /etc/shiny-server/shiny-server.conf
 
 
-RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
-Rscript /buildScript.R || :
+RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* 
 
-RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
-Rscript /loadScript.R || :
+RUN rm -rf /usr/local/lib/R/site-library/00LOCK-*
 
+USER shiny
+
+RUN Rscript /buildScript.R || :
+RUN Rscript /loadScript.R || :
+
+USER root
+
+RUN mkdir -p /home/shiny/.local/share
 RUN chmod -R 777 /home/shiny/.local/share
 
 CMD ["/startServer.sh"]
