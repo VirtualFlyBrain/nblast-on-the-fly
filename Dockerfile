@@ -31,7 +31,6 @@ RUN chmod +x /startServer.sh
 
 RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* 
 
-RUN rm -rf /usr/local/lib/R/site-library/00LOCK-*
 
 USER shiny
 
@@ -40,7 +39,11 @@ RUN Rscript /loadScript.R || :
 
 USER root
 
+RUN rm -rf /usr/local/lib/R/site-library/00LOCK-*
+
 RUN mkdir -p /home/shiny/.local/share
 RUN chmod -R 777 /home/shiny/.local/share
+
+USER shiny
 
 CMD ["/startServer.sh"]
