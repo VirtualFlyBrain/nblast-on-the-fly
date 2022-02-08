@@ -35,4 +35,6 @@ Rscript /buildScript.R || :
 RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* && \
 Rscript /loadScript.R || :
 
+RUN chmod -R 777 /home/shiny/.local/share
+
 CMD ["/startServer.sh"]
