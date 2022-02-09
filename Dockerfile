@@ -44,6 +44,4 @@ RUN rm -rf /usr/local/lib/R/site-library/00LOCK-*
 RUN mkdir -p /home/shiny/.local/share
 RUN chmod -R 777 /home/shiny/.local/share
 
-USER shiny
-
 CMD ["/startServer.sh"]
