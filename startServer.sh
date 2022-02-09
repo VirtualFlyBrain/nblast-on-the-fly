@@ -10,7 +10,6 @@ while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then
 
 
 chmod -R 777 /usr/local/lib/R/site-library
-chmod -R 777 /usr/lib/R/site-library
 chmod -R 777 /home/shiny/.local
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
