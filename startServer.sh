@@ -6,7 +6,7 @@ if [ "$FASTBOOT" != "false" ]; then
   sed -i "s|install_flyconnectome_all.R|install_flyconnectome_packages.R|" /loadScript.R
 fi
 
-while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then cat $file; fi; done; sleep 40; done &
+while true; do for file in /var/log/shiny-server/*.log; do if [ -e $file ]; then echo "${file}:"; cat -n $file; fi; done; sleep 40; done &
 
 
 chmod -R 777 /usr/local/lib/R/site-library
