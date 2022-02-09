@@ -31,7 +31,6 @@ RUN chmod +x /startServer.sh
 
 RUN rm -rf /usr/local/lib/R/site-library/00LOCK-* 
 RUN chmod -R 777 /usr/local/lib/R/site-library
-RUN chmod -R 777 /usr/lib/R/site-library
 RUN mkdir -p /home/shiny/.local/share
 RUN chmod -R 777 /home/shiny/.local/share
 
