@@ -20,6 +20,7 @@ if(!require("igraph")) install.packages("igraph", dependencies=TRUE)
 if(!require("rmarkdown")) install.packages("rmarkdown", dependencies=TRUE)
 devtools::install_github("jefferis/nat", dependencies=TRUE)
 devtools::install_github("jefferislab/nat.nblast", dependencies=TRUE)
+
 tryCatch(
     expr = {
         devtools::source_gist("9f01cc7b96424e6486e3cd413bb33fcd", filename = "install_flyconnectome_all.R")
@@ -61,6 +62,27 @@ tryCatch(
 ) 
 library('methods')
 library(flycircuit)
+
+# download the data required for the app
+# note that the data location will de determined by the flycircuit package
+# which in turn makes use of the rappdirs packages to choose a system-appropriate
+# location in the user's home folder
+library(flycircuit)
+
+message("Downloading (updated) data objects to: ", getOption("flycircuit.datadir"))
+
+# this is effectively just a dummy dps object that should trigger download of
+# all files
+# a slightly different one is requested in server.R
+dps<-read.neuronlistfh("http://virtualflybrain.org/data/VFB/nblast/flycircuit/dpscanon.rds",
+											 localdir=getOption('flycircuit.datadir'))
+remotesync(dps, download.missing = TRUE)
+# this is the object with neurons that we actually need
+fc_download_data('http://virtualflybrain.org/data/VFB/nblast/flycircuit/dpscanon_f9dc90ce5b2ffb74af37db1e3a2cb35b.rds')
+fc_download_data('http://virtualflybrain.org/data/VFB/nblast/flycircuit/allbyallblastcanon_f9dc90ce5b2ffb74af37db1e3a2cb35b.desc', type = 'bigmat')
+apres16k.p0=load_si_data("apres16k.p0.rds")
+
+
 tryCatch(
     expr = {
         allbyall=load_si_data("allbyallblastcanon_f9dc90ce5b2ffb74af37db1e3a2cb35b.desc")
