@@ -13,7 +13,7 @@ chmod -R 777 /usr/local/lib/R/site-library
 chmod -R 777 /home/shiny/.local
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 
-sudo -u shiny Rscript /loadScript.R
+sudo GITHUB_PAT=$GITHUB_PAT -u shiny Rscript /loadScript.R
 
 rm -r /usr/local/lib/R/site-library/00LOCK-*
 chmod -R 777 /home/shiny/.local
