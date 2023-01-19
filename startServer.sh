@@ -20,4 +20,4 @@ chmod -R 777 /home/shiny/.local
 
 cd /tmp/ && sleep 1m && wget http://localhost:3838/NBLAST_on-the-fly/ &
 
-/usr/bin/shiny-server.sh 
+/init
